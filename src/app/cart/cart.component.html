@@ -1,0 +1,30 @@
+<div class="container">
+  <h3>cart</h3>
+  <a routerLink="/shipping">Shipping Prices</a>
+  <div *ngFor="let item of items">
+    <span>{{ item.name }}</span>
+    <span>{{ item.price }}</span>
+  </div>
+
+  <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input
+        id="name"
+        type="text"
+        class="form-control"
+        formControlName="name"
+      />
+    </div>
+    <div class="form-group">
+      <label for="address">Address</label>
+      <input
+        id="address"
+        type="text"
+        class="form-control"
+        formControlName="address"
+      />
+    </div>
+    <button type="submit" class="btn btn-success">Buy Now</button>
+  </form>
+</div>
